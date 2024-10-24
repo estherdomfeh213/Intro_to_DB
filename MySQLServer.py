@@ -12,7 +12,7 @@ try:
   my_cursor.close()
   server_connection.close()
   
-except(  Exception, mysql.connector.Error ) as e:
+except mysql.connector.Error as e:
   print(e)
   
 else: 
