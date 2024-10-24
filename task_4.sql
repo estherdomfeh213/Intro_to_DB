@@ -1,6 +1,7 @@
- import mysql.connector
+import mysql.connector
 
 try:
+    
     server_connection = mysql.connector.connect(
         host='localhost',
         user='root',
@@ -13,12 +14,11 @@ try:
     
     my_cursor.execute("USE alx_book_store;")
 
-   
+    
     my_cursor.execute("""
         SELECT 
             COLUMN_NAME AS 'Column Name',
-            DATA_TYPE AS 'Data Type',
-            CHARACTER_MAXIMUM_LENGTH AS 'Max Length',
+            COLUMN_TYPE AS 'Column Type',
             IS_NULLABLE AS 'Is Nullable',
             COLUMN_DEFAULT AS 'Default Value'
         FROM 
@@ -31,12 +31,12 @@ try:
     -- Fetch the results
     columns = my_cursor.fetchall()
 
-    -- Print the results
+    --Print the results
     print("Full description of the 'books' table:")
     for column in columns:
         print(column)
 
-    -- Close the cursor and connection
+    --Close the cursor and connection
     my_cursor.close()
     server_connection.close()
 
