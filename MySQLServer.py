@@ -1,4 +1,4 @@
-import mysql.cogit nnector 
+import mysql.connector 
 
 try:
   server_connection = mysql.connector.connect(
